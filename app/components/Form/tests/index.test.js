@@ -1,9 +1,9 @@
 // import React from 'react';
 // import { shallow } from 'enzyme';
 
-// import { ViewMessagesPage } from '../index';
+// import Form from '../index';
 
-describe('<ViewMessagesPage />', () => {
+describe('<Form />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(false);
   });

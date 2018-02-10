@@ -1,6 +1,6 @@
 /**
  *
- * ViewMessagesPage
+ * ViewNotesPage
  *
  */
 
@@ -13,12 +13,12 @@ import { compose } from 'redux';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import makeSelectViewMessagesPage from './selectors';
+import makeSelectViewNotesPage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
 
-export class ViewMessagesPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+export class ViewNotesPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
       <div>
@@ -28,12 +28,12 @@ export class ViewMessagesPage extends React.PureComponent { // eslint-disable-li
   }
 }
 
-// ViewMessagesPage.propTypes = {
-//   dispatch: PropTypes.func.isRequired,
-// };
+ViewNotesPage.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = createStructuredSelector({
-  viewmessagespage: makeSelectViewMessagesPage(),
+  viewnotespage: makeSelectViewNotesPage(),
 });
 
 function mapDispatchToProps(dispatch) {
@@ -44,11 +44,11 @@ function mapDispatchToProps(dispatch) {
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
-const withReducer = injectReducer({ key: 'viewMessagesPage', reducer });
-const withSaga = injectSaga({ key: 'viewMessagesPage', saga });
+const withReducer = injectReducer({ key: 'viewNotesPage', reducer });
+const withSaga = injectSaga({ key: 'viewNotesPage', saga });
 
 export default compose(
   withReducer,
   withSaga,
   withConnect,
-)(ViewMessagesPage);
+)(ViewNotesPage);

@@ -1,7 +1,7 @@
 // import { fromJS } from 'immutable';
-// import { selectSubmitMessagesPageDomain } from '../selectors';
+// import { selectViewNotesPageDomain } from '../selectors';
 
-describe('selectSubmitMessagesPageDomain', () => {
+describe('selectViewNotesPageDomain', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(false);
   });

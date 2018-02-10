@@ -1,6 +1,6 @@
 /*
  *
- * ViewMessagesPage actions
+ * ViewNotesPage actions
  *
  */
 

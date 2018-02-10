@@ -1,6 +1,6 @@
 /**
  *
- * Asynchronously loads the component for ViewMessagesPage
+ * Asynchronously loads the component for ViewNotesPage
  *
  */
 

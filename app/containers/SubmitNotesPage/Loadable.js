@@ -1,6 +1,6 @@
 /**
  *
- * Asynchronously loads the component for SubmitMessagesPage
+ * Asynchronously loads the component for SubmitNotesPage
  *
  */
 

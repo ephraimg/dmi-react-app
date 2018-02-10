@@ -14,8 +14,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import SubmitMessagesPage from 'containers/SubmitMessagesPage/Loadable';
-import ViewMessagesPage from 'containers/ViewMessagesPage/Loadable';
+import SubmitNotesPage from 'containers/SubmitNotesPage/Loadable';
+import ViewNotesPage from 'containers/ViewNotesPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Header from 'components/Header';
 
@@ -24,8 +24,8 @@ export default function App() {
     <div>
       <Header />
       <Switch>
-        <Route exact path="/" component={SubmitMessagesPage} />
-        <Route path="/view" component={ViewMessagesPage} />
+        <Route exact path="/" component={SubmitNotesPage} />
+        <Route path="/view" component={ViewNotesPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>
