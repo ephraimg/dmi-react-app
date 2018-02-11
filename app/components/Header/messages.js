@@ -16,6 +16,6 @@ export default defineMessages({
   },
   view: {
     id: 'app.components.Header.view',
-    defaultMessage: 'View Messages',
+    defaultMessage: 'View Notes',
   },
 });

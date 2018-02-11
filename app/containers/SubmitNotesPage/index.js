@@ -16,7 +16,7 @@ import injectReducer from 'utils/injectReducer';
 import Form from 'components/Form';
 import Input from 'components/Input';
 import { changeNote, saveNote } from './actions';
-import { makeSelectNote, makeSelectSubmitNotesPage } from './selectors';
+import { makeSelectNote, makeSelectSubmitNotesPage, makeSelectSaveStatus } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
@@ -38,20 +38,23 @@ export class SubmitNotesPage extends React.PureComponent { // eslint-disable-lin
             />
           </label>
         </Form>
+        Note-saving status: {this.props.saveStatus}
       </div>
     );
   }
 }
 
 SubmitNotesPage.propTypes = {
-  onSubmitForm: PropTypes.func,
   note: PropTypes.string,
+  saveStatus: PropTypes.bool,
+  onSubmitForm: PropTypes.func,
   onChangeNote: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
   note: makeSelectNote(),
   submitnotespage: makeSelectSubmitNotesPage(),
+  saveStatus: makeSelectSaveStatus(),
 });
 
 function mapDispatchToProps(dispatch) {
@@ -59,7 +62,8 @@ function mapDispatchToProps(dispatch) {
     onChangeNote: (evt) => dispatch(changeNote(evt.target.value)),
     onSubmitForm: (evt) => {
       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-      dispatch(saveNote(evt.target.value));
+      dispatch(saveNote());
+      dispatch(changeNote(''));
     },
   };
 }

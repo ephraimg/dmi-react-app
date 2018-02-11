@@ -1,6 +1,5 @@
-// import { take, call, put, select } from 'redux-saga/effects';
+// Import things for sagas
 
-// Individual exports for testing
-export default function* defaultSaga() {
-  // See example in containers/HomePage/saga.js
+export default function* getNotes() {
+  console.log('Retrieve notes here...');
 }

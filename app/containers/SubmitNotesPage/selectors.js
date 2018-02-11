@@ -13,6 +13,11 @@ const makeSelectNote = () => createSelector(
   (substate) => substate.get('note')
 );
 
+const makeSelectSaveStatus = () => createSelector(
+  selectSubmitNotesPageDomain,
+  (substate) => substate.get('wasSaved')
+);
+
 /**
  * Default selector used by SubmitNotesPage
  */
@@ -26,4 +31,5 @@ export {
   makeSelectSubmitNotesPage,
   selectSubmitNotesPageDomain,
   makeSelectNote,
+  makeSelectSaveStatus,
 };
