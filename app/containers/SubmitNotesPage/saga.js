@@ -9,16 +9,20 @@ import { noteSaved, noteSaveError, noteSaveReset } from './actions';
 
 export function* saveNote() {
   const noteText = yield select(makeSelectNote());
-  try {
-    const config = {
-      method: 'post',
-      url: '/api/notes',
-      data: { text: noteText },
-    };
-    yield call(makeRequest, config);
-    yield put(noteSaved()); // don't need data
-  } catch (err) {
-    yield put(noteSaveError(err));
+  if (!noteText.length) {
+    yield put(noteSaveError());
+  } else {
+    try {
+      const config = {
+        method: 'post',
+        url: '/api/notes',
+        data: { text: noteText },
+      };
+      yield call(makeRequest, config);
+      yield put(noteSaved()); // don't need data
+    } catch (err) {
+      yield put(noteSaveError(err));
+    }
   }
   yield call(delay, 1500);
   yield put(noteSaveReset());

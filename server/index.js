@@ -2,7 +2,6 @@
 
 const express = require('express');
 const logger = require('./logger');
-
 const argv = require('./argv');
 const port = require('./port');
 const setup = require('./middlewares/frontendMiddleware');
@@ -12,8 +11,6 @@ const resolve = require('path').resolve;
 
 const app = express();
 
-// If you need a backend, e.g. an API, add your custom backend-specific middleware here
-// app.use('/api', myApi);
 const api = require('./middlewares/api');
 app.use('/api', api);
 

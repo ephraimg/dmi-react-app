@@ -8,7 +8,11 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   appDescription: {
     id: 'app.components.Header.appDescription',
-    defaultMessage: 'Sample application using react-boilerplate',
+    defaultMessage: 'Note-saver',
+  },
+  appSubDescription: {
+    id: 'app.components.Header.appSubDescription',
+    defaultMessage: 'Built with React-Boilerplate, React-Router, Redux, Redux-Saga, and Reselect',
   },
   submit: {
     id: 'app.components.Header.submit',

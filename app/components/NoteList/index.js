@@ -4,29 +4,27 @@
 *
 */
 
+/* eslint-disable no-underscore-dangle */
+
 import React from 'react';
 import PropTypes from 'prop-types';
-// import styled from 'styled-components';
 
-import { FormattedMessage } from 'react-intl';
-import { NoteListHeader } from '../NoteListHeader/index';
-import { NoteListItem } from '../NoteListItem/index';
-import messages from './messages';
+import Ul from 'components/Ul';
+import NoteListHeader from 'components/NoteListHeader';
+import NoteListItem from 'components/NoteListItem';
 
-export function NoteList(props) {
-  return (
-    <div>
-      <NoteListHeader>
-        <FormattedMessage {...messages.header} />
-      </NoteListHeader>
-      <ul>
-        {props.notes.map((item) => (
-          <NoteListItem note={item} key={item._id} />
-        ))}
-      </ul>
-    </div>
-  );
-}
+const NoteList = (props) => (
+  <div>
+    <NoteListHeader notes={props.notes} />
+    <Ul>
+      {props.notes.map((item) => (
+        <NoteListItem note={item} key={item._id} />
+      ))}
+    </Ul>
+  </div>
+);
+
+export default NoteList;
 
 NoteList.propTypes = {
   notes: PropTypes.array,

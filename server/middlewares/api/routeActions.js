@@ -8,14 +8,12 @@ const getNotesRoute = (req, res) => {
     if (err) {
       res.sendStatus(500);
     } else {
-      console.log(notes);
       res.status(200).send(notes);
     }
   });
 };
 
 const postNotesRoute = (req, res) => {
-  console.log(req.body);
   saveNote(req.body, (err, note) => {
     if (err) {
       res.sendStatus(500);

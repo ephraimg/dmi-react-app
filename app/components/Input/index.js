@@ -6,9 +6,10 @@
 
 import styled from 'styled-components';
 
-const Input = styled.input`
-  outline: none;
-  border-bottom: 1px dotted #999;
+export default styled.input`
+  margin: 1em;
+  padding: .25em 1em;
+  font-size: 18px;
+  background-color: white;
+  border: 1px solid #999;
 `;
-
-export default Input;

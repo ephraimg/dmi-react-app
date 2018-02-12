@@ -10,36 +10,47 @@ import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
-
-import injectSaga from 'utils/injectSaga';
-import injectReducer from 'utils/injectReducer';
 import Form from 'components/Form';
 import Input from 'components/Input';
-import { changeNote, saveNote } from './actions';
-import { makeSelectNote, makeSelectSubmitNotesPage, makeSelectSaveStatus } from './selectors';
+import Div from 'components/Div';
+import Button from 'components/Button';
+import injectSaga from 'utils/injectSaga';
+import injectReducer from 'utils/injectReducer';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
+import { changeNote, saveNote } from './actions';
+import { makeSelectNote, makeSelectSubmitNotesPage, makeSelectSaveStatus } from './selectors';
 
 export class SubmitNotesPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
+    let saveStatusMessage;
+    if (this.props.saveStatus !== null) {
+      saveStatusMessage = this.props.saveStatus
+        ? <FormattedMessage {...messages.wasSavedMessage} />
+        : <FormattedMessage {...messages.notSavedMessage} />;
+    }
     return (
-      <div>
-        <FormattedMessage {...messages.header} />
+      <Div>
         <Form onSubmit={this.props.onSubmitForm}>
           <label htmlFor="note">
             <FormattedMessage {...messages.inputDescription} />
-            <Input
-              id="note"
-              type="text"
-              placeholder="Write your note here!"
-              value={this.props.note}
-              onChange={this.props.onChangeNote}
-            />
+            <div>
+              <Button>
+                Save
+              </Button>
+              <Input
+                id="note"
+                type="text"
+                placeholder={messages.inputPlaceholder.defaultMessage}
+                value={this.props.note}
+                onChange={this.props.onChangeNote}
+              />
+              {saveStatusMessage}
+            </div>
           </label>
         </Form>
-        Note-saving status: {this.props.saveStatus}
-      </div>
+      </Div>
     );
   }
 }
@@ -57,19 +68,16 @@ const mapStateToProps = createStructuredSelector({
   saveStatus: makeSelectSaveStatus(),
 });
 
-function mapDispatchToProps(dispatch) {
-  return {
-    onChangeNote: (evt) => dispatch(changeNote(evt.target.value)),
-    onSubmitForm: (evt) => {
-      if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-      dispatch(saveNote());
-      dispatch(changeNote(''));
-    },
-  };
-}
+const mapDispatchToProps = (dispatch) => ({
+  onChangeNote: (evt) => dispatch(changeNote(evt.target.value)),
+  onSubmitForm: (evt) => {
+    if (evt !== undefined && evt.preventDefault) evt.preventDefault();
+    dispatch(saveNote());
+    dispatch(changeNote(''));
+  },
+});
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
-
 const withReducer = injectReducer({ key: 'submitNotesPage', reducer });
 const withSaga = injectSaga({ key: 'submitNotesPage', saga });
 

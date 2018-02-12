@@ -13,7 +13,6 @@
 
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-
 import SubmitNotesPage from 'containers/SubmitNotesPage/Loadable';
 import ViewNotesPage from 'containers/ViewNotesPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';

@@ -6,12 +6,20 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
-  header: {
-    id: 'app.containers.SubmitNotesPage.header',
-    defaultMessage: 'This is SubmitNotesPage container !',
-  },
   inputDescription: {
     id: 'app.containers.SubmitNotesPage.inputDescription',
-    defaultMessage: 'This is the description of the input box',
+    defaultMessage: 'Enter a note below, save it, and retrieve it later at \'View Notes\'!',
+  },
+  wasSavedMessage: {
+    id: 'app.containers.SubmitNotesPage.wasSavedMessage',
+    defaultMessage: 'Saved!',
+  },
+  notSavedMessage: {
+    id: 'app.containers.SubmitNotesPage.notSavedMessage',
+    defaultMessage: 'Error!',
+  },
+  inputPlaceholder: {
+    id: 'app.containers.SubmitNotesPage.inputPlaceholder',
+    defaultMessage: 'Your note...',
   },
 });

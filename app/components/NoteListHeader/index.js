@@ -5,15 +5,21 @@
 */
 
 import React from 'react';
-// import styled from 'styled-components';
-
+import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 
-export function NoteListHeader() {
-  return (
-    <div>
-      <FormattedMessage {...messages.header} />
-    </div>
-  );
-}
+const NoteListHeader = (props) => (
+  <div>
+    <FormattedMessage
+      {...messages.header}
+      values={{ count: props.notes.length || '0' }}
+    />
+  </div>
+);
+
+export default NoteListHeader;
+
+NoteListHeader.propTypes = {
+  notes: PropTypes.array,
+};

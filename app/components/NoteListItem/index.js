@@ -6,15 +6,15 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-// import styled from 'styled-components';
+import Li from 'components/Li';
 
-export function NoteListItem(props) {
-  return (
-    <li>
-      {props.note.text}
-    </li>
-  );
-}
+const NoteListItem = (props) => (
+  <Li>
+    {props.note.text}
+  </Li>
+);
+
+export default NoteListItem;
 
 NoteListItem.propTypes = {
   note: PropTypes.object,

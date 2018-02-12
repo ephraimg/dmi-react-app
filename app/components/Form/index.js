@@ -6,8 +6,6 @@
 
 import styled from 'styled-components';
 
-const Form = styled.form`
+export default styled.form`
   margin-bottom: 1em;
 `;
-
-export default Form;
