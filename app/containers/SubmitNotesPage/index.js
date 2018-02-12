@@ -68,14 +68,16 @@ const mapStateToProps = createStructuredSelector({
   saveStatus: makeSelectSaveStatus(),
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  onChangeNote: (evt) => dispatch(changeNote(evt.target.value)),
-  onSubmitForm: (evt) => {
-    if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-    dispatch(saveNote());
-    dispatch(changeNote(''));
-  },
-});
+export function mapDispatchToProps(dispatch) {
+  return {
+    onChangeNote: (evt) => dispatch(changeNote(evt.target.value)),
+    onSubmitForm: (evt) => {
+      if (evt !== undefined && evt.preventDefault) evt.preventDefault();
+      dispatch(saveNote());
+      dispatch(changeNote(''));
+    },
+  };
+}
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 const withReducer = injectReducer({ key: 'submitNotesPage', reducer });

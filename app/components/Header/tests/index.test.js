@@ -1,10 +1,32 @@
-// import React from 'react';
-// import { shallow } from 'enzyme';
 
-// import Header from '../index';
+import React from 'react';
+import { shallow } from 'enzyme';
+
+import Header from '../index';
 
 describe('<Header />', () => {
-  it('Expect to have unit tests specified', () => {
-    expect(true).toEqual(false);
+  it('should render a div', () => {
+    const renderedComponent = shallow(
+      <Header />
+    );
+    expect(renderedComponent.find('div').length).toEqual(1);
+  });
+  it('should render a NavBar', () => {
+    const renderedComponent = shallow(
+      <Header />
+    );
+    expect(renderedComponent.find('NavBar').length).toEqual(1);
+  });
+  it('should render an AppDescription', () => {
+    const renderedComponent = shallow(
+      <Header />
+    );
+    expect(renderedComponent.find('AppDescription').length).toEqual(1);
+  });
+  it('should render an AppSubDescription', () => {
+    const renderedComponent = shallow(
+      <Header />
+    );
+    expect(renderedComponent.find('AppSubDescription').length).toEqual(1);
   });
 });

@@ -3,7 +3,7 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { GET_NOTES } from './constants';
 import { notesGotten, notesGetError } from './actions';
 
-function* getNotes() {
+export function* getNotes() {
   try {
     const config = {
       method: 'get',

@@ -1,10 +1,23 @@
-// import React from 'react';
-// import { shallow } from 'enzyme';
+import React from 'react';
+import { shallow } from 'enzyme';
 
-// import Form from '../index';
+import Form from '../index';
 
 describe('<Form />', () => {
-  it('Expect to have unit tests specified', () => {
-    expect(true).toEqual(false);
+  it('should render an <form> tag', () => {
+    const renderedComponent = shallow(<Form />);
+    expect(renderedComponent.type()).toEqual('form');
+  });
+
+  it('should adopt a valid attribute', () => {
+    const id = 'test';
+    const renderedComponent = shallow(<Form id={id} />);
+    expect(renderedComponent.prop('id')).toEqual(id);
+  });
+
+  it('should not adopt an invalid attribute', () => {
+    const renderedComponent = shallow(<Form attribute={'test'} />);
+    expect(renderedComponent.prop('attribute')).toBeUndefined();
   });
 });
+

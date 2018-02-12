@@ -1,18 +1,65 @@
 
 import {
-  defaultAction,
+  changeNote,
+  saveNote,
+  noteSaved,
+  noteSaveError,
+  noteSaveReset,
 } from '../actions';
+
 import {
-  DEFAULT_ACTION,
+  CHANGE_NOTE,
+  SAVE_NOTE,
+  NOTE_SAVED,
+  NOTE_SAVE_ERROR,
+  NOTE_SAVE_RESET,
 } from '../constants';
 
 describe('SubmitNotesPage actions', () => {
-  describe('Default Action', () => {
-    it('has a type of DEFAULT_ACTION', () => {
+  describe('changeNote', () => {
+    it('should return the correct type and passed note', () => {
+      const fixture = 'A sample note for the test!';
       const expected = {
-        type: DEFAULT_ACTION,
+        type: CHANGE_NOTE,
+        text: fixture,
       };
-      expect(defaultAction()).toEqual(expected);
+      expect(changeNote(fixture)).toEqual(expected);
+    });
+  });
+
+  describe('saveNote', () => {
+    it('should return the correct type', () => {
+      const expected = {
+        type: SAVE_NOTE,
+      };
+      expect(saveNote()).toEqual(expected);
+    });
+  });
+
+  describe('noteSaved', () => {
+    it('should return the correct type', () => {
+      const expected = {
+        type: NOTE_SAVED,
+      };
+      expect(noteSaved()).toEqual(expected);
+    });
+  });
+
+  describe('noteSaveError', () => {
+    it('should return the correct type', () => {
+      const expected = {
+        type: NOTE_SAVE_ERROR,
+      };
+      expect(noteSaveError()).toEqual(expected);
+    });
+  });
+
+  describe('noteSaveReset', () => {
+    it('should return the correct type', () => {
+      const expected = {
+        type: NOTE_SAVE_RESET,
+      };
+      expect(noteSaveReset()).toEqual(expected);
     });
   });
 });

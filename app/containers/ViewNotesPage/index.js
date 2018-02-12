@@ -43,9 +43,11 @@ ViewNotesPage.propTypes = {
   onComponentMount: PropTypes.func,
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  onComponentMount: () => dispatch(getNotes()),
-});
+export function mapDispatchToProps(dispatch) {
+  return {
+    onComponentMount: () => dispatch(getNotes()),
+  };
+}
 
 const mapStateToProps = createStructuredSelector({
   notes: makeSelectNotes(),

@@ -3,13 +3,18 @@
  */
 
 /* eslint-disable redux-saga/yield-effects */
-// import { take, call, put, select } from 'redux-saga/effects';
-// import { defaultSaga } from '../saga';
 
-// const generator = defaultSaga();
+import { takeLatest } from 'redux-saga/effects';
+import watchGetNotes, { getNotes } from '../saga';
+import { GET_NOTES } from '../constants';
 
-describe('defaultSaga Saga', () => {
-  it('Expect to have unit tests specified', () => {
-    expect(true).toEqual(false);
+// const note = 'Sample note for tests!';
+
+describe('watchGetNotes Saga', () => {
+  const watchGetNotesSaga = watchGetNotes();
+
+  it('should start task to watch for GET_NOTES action', () => {
+    const takeLatestDescriptor = watchGetNotesSaga.next().value;
+    expect(takeLatestDescriptor).toEqual(takeLatest(GET_NOTES, getNotes));
   });
 });

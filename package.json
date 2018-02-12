@@ -251,6 +251,7 @@
   },
   "devDependencies": {
     "add-asset-html-webpack-plugin": "2.0.1",
+    "axios-mock-adapter": "^1.13.1",
     "babel-cli": "6.24.1",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
