@@ -14,6 +14,7 @@ import Form from 'components/Form';
 import Input from 'components/Input';
 import Div from 'components/Div';
 import Button from 'components/Button';
+import Status from 'components/Status';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 import reducer from './reducer';
@@ -46,7 +47,9 @@ export class SubmitNotesPage extends React.PureComponent { // eslint-disable-lin
                 value={this.props.note}
                 onChange={this.props.onChangeNote}
               />
-              {saveStatusMessage}
+              <Status saveStatus={this.props.saveStatus}>
+                {saveStatusMessage}
+              </Status>
             </div>
           </label>
         </Form>
