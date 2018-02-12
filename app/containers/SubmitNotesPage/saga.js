@@ -1,4 +1,4 @@
-import { sendNote } from 'utils/request';
+import { makeRequest } from 'utils/request';
 import { delay } from 'redux-saga';
 import { takeLatest, select, call, put } from 'redux-saga/effects';
 import { SAVE_NOTE } from './constants';
@@ -9,14 +9,13 @@ import { noteSaved, noteSaveError, noteSaveReset } from './actions';
 
 export function* saveNote() {
   const noteText = yield select(makeSelectNote());
-  console.log('noteText is: ', noteText);
   try {
     const config = {
       method: 'post',
       url: '/api/notes',
       data: { text: noteText },
     };
-    yield call(sendNote, config);
+    yield call(makeRequest, config);
     yield put(noteSaved()); // don't need data
   } catch (err) {
     yield put(noteSaveError(err));

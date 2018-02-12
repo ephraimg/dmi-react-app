@@ -17,7 +17,7 @@ function checkStatus(response) {
   throw error;
 }
 
-export function sendNote(config) {
+export function makeRequest(config) {
   return axios(config)
     .then(checkStatus)
     .then(grabData);

@@ -8,7 +8,10 @@ const selectViewNotesPageDomain = (state) => state.get('viewNotesPage');
 /**
  * Other specific selectors
  */
-
+const makeSelectNotes = () => createSelector(
+  selectViewNotesPageDomain,
+  (substate) => substate.get('notes')
+);
 
 /**
  * Default selector used by ViewNotesPage
@@ -19,7 +22,8 @@ const makeSelectViewNotesPage = () => createSelector(
   (substate) => substate.toJS()
 );
 
-export default makeSelectViewNotesPage;
 export {
+  makeSelectNotes,
+  makeSelectViewNotesPage,
   selectViewNotesPageDomain,
 };
